@@ -1,88 +1,178 @@
 # React Enterprise Boilerplate
 
-React Enterprise Boilerplate is a starter template for building scalable and maintainable React applications for enterprise-level projects. This boilerplate provides a well-organized and optimized project structure with pre-configured tools.
+A scalable and well-structured React + TypeScript project architecture
+designed for enterprise-level applications.
 
-## Features
+------------------------------------------------------------------------
 
-- Well-organized and optimized project structure
-- Separation of concerns, with clear division between components, constants, hooks, layouts, pages, routes, store, and utils
-- Sample implementation of various features, including authentication, dashboard, and posts
-- Built on top of the latest version of React, with full support for TypeScript
+## 📁 Project Structure
 
-## Methodology Behind Organizing React Project Directory Structure
-Creating a scalable and maintainable codebase in React can be challenging, but by following a few key principles, we can make the process much smoother. Here are three principles that I've used in this React Enterprise Boilerplate:
-### Composability: 
-Reusing code between components is a powerful concept in React. By creating small, reusable building blocks, you can combine them to form more complex components. For example, a "Button" component can be used in multiple places throughout your application.
-### Local first:
-Keep the code that pertains only to a specific component, local. Avoid breaking out code into separate directories unless necessary. For example, an authentication feature with an auth-form component and utility functions should be kept in the same directory as the feature itself.
-### Flatter is better:
-Every time you nest a component, it becomes harder to understand its local code. Keeping your directory structure as flat as possible makes it easier to find and modify the files you need. However, if you have a large "Features" directory with multiple components, it's okay to nest components by their functionality or the page they're used on.
+    react-enterprise-boilerplate/
+    │
+    ├── public/                 # Static assets (favicon, static images, etc.)
+    │
+    ├── src/
+    │   ├── assets/             # Images, fonts, icons, global styles
+    │   ├── components/         # Reusable UI components (Button, Modal, Input...)
+    │   ├── constant/           # Application-wide constants and enums
+    │   ├── features/           # Business logic modules (feature-based structure)
+    │   ├── hooks/              # Custom React hooks
+    │   ├── layouts/            # Layout components (MainLayout, AuthLayout...)
+    │   ├── pages/              # Page-level components mapped to routes
+    │   ├── routes/             # Application routing configuration
+    │   ├── store/              # Global state management (Redux/Zustand/etc.)
+    │   │
+    │   ├── App.tsx             # Root application component
+    │   ├── App.css             # App-level styles
+    │   ├── index.css           # Global styles
+    │   ├── main.tsx            # Application entry point
+    │   └── vite-env.d.ts       # Vite TypeScript definitions
+    │
+    ├── index.html              # Root HTML template
+    ├── package.json            # Project dependencies and scripts
+    ├── package-lock.json       # Dependency lock file
+    ├── tsconfig.json           # TypeScript configuration
+    ├── tsconfig.node.json      # Node-specific TypeScript configuration
+    ├── vite.config.ts          # Vite configuration
+    └── README.md               # Project documentation
+
+------------------------------------------------------------------------
+
+## 🧠 Architectural Principles
+
+### 1️⃣ Separation of Concerns
+
+Each folder has a clear responsibility: - UI components →
+`components/` - Business logic → `features/` - Layout structure →
+`layouts/` - Routing → `routes/` - Global state → `store/`
+
+This ensures maintainability and scalability.
+
+------------------------------------------------------------------------
+
+### 2️⃣ Feature-Based Structure
+
+Business logic is grouped by feature inside the `features/` directory.\
+Each feature can contain: - components - services - hooks - slices (if
+using Redux) - types - utils
+
+Example:
+
+    features/
+    └── auth/
+        ├── components/
+        ├── services/
+        ├── hooks/
+        ├── auth.slice.ts
+        └── types.ts
+
+------------------------------------------------------------------------
+
+### 3️⃣ Reusability & Composability
+
+Shared UI components are placed inside `components/` to maximize reuse
+across features.
+
+------------------------------------------------------------------------
+
+### 4️⃣ Scalable State Management
+
+Global state is managed inside `store/`, allowing: - Centralized state
+handling - Predictable data flow - Easy debugging
+
+------------------------------------------------------------------------
+
+## 🚀 Getting Started
+
+### Install dependencies
+
+``` bash
+npm install
+```
+
+### Run development server
+
+``` bash
+npm run dev
+```
+
+### Build for production
+
+``` bash
+npm run build
+```
+
+------------------------------------------------------------------------
+
+## 📦 Tech Stack
+
+-   React
+-   TypeScript
+-   Vite
+-   Modern State Management (Redux/Zustand)
+-   Modular Architecture
+
+------------------------------------------------------------------------
+
+## 📌 Best Practices
+
+-   Keep components small and reusable
+-   Avoid business logic inside UI components
+-   Organize code by feature when possible
+-   Use TypeScript types consistently
+-   Follow consistent naming conventions
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Code Web Không Khó
+
+---
+## 📚 Dạy Học Online
+
+Bên cạnh tài liệu miễn phí, mình còn mở các khóa học online:
+
+- **Lập trình web cơ bản → nâng cao**
+- **Ứng dụng về AI và Automation**
+- **Kỹ năng phỏng vấn & xây CV IT**
+
+### Thông Tin Đăng Ký
+
+- 🌐 Website: [https://codewebkhongkho.com](https://codewebkhongkho.com/portfolios)
+- 📧 Email: nguyentientai10@gmail.com
+- 📞 Zalo/Hotline: 0798805741
+
+---
+
+## 💖 Donate Ủng Hộ
+
+Nếu bạn thấy các source hữu ích và muốn mình tiếp tục phát triển nội dung miễn phí, hãy ủng hộ mình bằng cách donate.  
+Mình sẽ sử dụng kinh phí cho:
+
+- 🌐 Server, domain, hosting
+- 🛠️ Công cụ bản quyền (IDE, plugin…)
+- 🎓 Học bổng, quà tặng cho cộng đồng
+
+### QR Code Ngân Hàng
+
+Quét QR để ủng hộ nhanh:
+
+<img src="https://res.cloudinary.com/ecommerce2021/image/upload/v1760680573/abbank_yjbpat.jpg" alt="QR Code ABBank" width="300">
 
 
-It is important to note that while the principles outlined above can be incredibly helpful in creating a scalable and maintainable React codebase, they are not hard and fast rules. Ultimately, the best directory structure for your project will depend on its specific requirements and needs.
+**QR Code ABBank**  
+- Chủ tài khoản: Nguyễn Tiến Tài  
+- Ngân hàng: NGAN HANG TMCP AN BINH  
+- Số tài khoản: 1651002972052
 
-That said, the principles of composability, local-first development, and flat directory structures are powerful tools that can make your development process smoother and more efficient. By organizing your codebase in a way that promotes reusability, keeps related code together, and minimizes nesting, you can create a more organized and manageable project.
+---
 
-In the end, the key is to use these principles as a starting point, and to be willing to adjust and adapt your directory structure as needed to best suit your project's unique needs. By keeping an open mind and remaining flexible, you can build a codebase that is not only scalable and maintainable, but also perfectly tailored to your project's requirements.
+## 📞 Liên Hệ
 
-## Folder Structure
+- 📚 Facebook Dạy Học: [Code Web Không Khó](https://www.facebook.com/codewebkhongkho)
+- 📚 Tiktok Dạy Học: [@code.web.khng.kh](https://www.tiktok.com/@code.web.khng.kh)
+- 💻 GitHub: [fdhhhdjd](https://github.com/fdhhhdjd)
+- 📧 Email: [nguyentientai10@gmail.com](mailto:nguyentientai10@gmail.com)
 
-The folder structure of the project is as follows:
-
-### assets
-The assets folder contains various asset files that are used throughout the application, such as images, fonts, documents, and styles. These files are organized into subfolders based on their type, making it easy to find and manage them.
-
-### components
-The components folder contains common, shared, and UI components that are used throughout the application. These components are organized into subfolders based on their purpose or functionality, making it easy to find and manage them. This folder follows the Atomic Design methodology.
-
-### constants
-The constants folder contains constant values that are used throughout the application, such as API endpoints and error messages. This helps to centralize and organize these values, making them easier to manage and update.
-
-### features
-The features folder contains feature-specific code, including components, hooks, services, slices, and utils. Each feature is organized into a separate subfolder, making it easy to find and manage the code related to each feature.
-
-### hooks
-The hooks folder contains various custom hooks that are used throughout the application. These hooks are organized into subfolders based on their functionality, making it easy to find and manage them.
-
-### layouts
-The layouts folder contains layout components that are used to structure the overall layout of the application. This includes components such as the header and footer. These components are designed to be reusable across the application and can be easily customized.
-
-### pages
-The pages folder contains the top-level pages for the application, organized into subfolders based on their feature. Each page typically consists of a combination of components and hooks, and is responsible for handling the business logic and rendering of the page.
-
-### routes
-The routes folder contains routing components that are used to handle navigation within the application. This includes components such as private and public routes, and routes with layout. These components are designed to provide a consistent and intuitive navigation experience for the user.
-
-### store
-The store folder contains Redux store-related code, including slices, services, and rtkQuery. These components are used to manage the state of the application and communicate with external APIs.
-
-### utils
-The utils folder contains various utility functions that are used throughout the application, such as date formatting and email validation. These functions are organized into subfolders based on their functionality, making it easy to find and manage them.
-# Getting Started
-
-To get started with the project, follow these steps:
-
-1. Clone the repository: `[git clone https://github.com/Harshalingole/react-enterprise-boilerplate.git]`
-2. Install the dependencies using `npm install`.
-3. Start the development server using `npm run dev`.
-
-## Contributing
-
-I welcome contributions and suggestion from the community. To contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature/bugfix using `git checkout -b <branchname>`.
-3. Make your changes and commit them using `git commit -m "<commit message>"`.
-4. Push your changes to your fork using `git push origin <branchname>`.
-5. Create a pull request on the main repository and describe your changes.
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE.md` file for details.
-
-## Acknowledgements
-
-This project was inspired by folder structure i personally implemented in building ardev erp software,various enterprise-level React open source application,blogs,and best industry practices.
-
-## Conclusion
-React Enterprise Boilerplate provides a solid foundation for building scalable and maintainable React applications for enterprise-level projects. Its well-organized and optimized project structure, along with pre-configured tools and libraries, will help you to get up and running quickly and efficiently.Ultimately, the best directory structure for your project will depend on its specific requirements and needs.
+Cảm ơn bạn đã quan tâm & chúc bạn học tập hiệu quả! Have a nice day <3!!
