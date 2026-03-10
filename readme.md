@@ -7,6 +7,8 @@ designed for enterprise-level applications.
 
 ## 📁 Project Structure
 
+<img src="./assets/standard.jpg" alt="QR Code ABBank" width="700" height="700">
+
     react-enterprise-boilerplate/
     │
     ├── public/                 # Static assets (favicon, static images, etc.)
